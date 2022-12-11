@@ -23,11 +23,10 @@ class LocationController extends Controller
 
         $locations = Location::all();
             return [
-                'success' => true,
-                'locations' => $locations
+                // 'success' => true,
+                'response' => $locations
             ];
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +47,7 @@ class LocationController extends Controller
     {   
 
         $input = $request->input();
-
+            
         $location = Location::create($input);
             return [
                 'success' => true,
@@ -63,12 +62,15 @@ class LocationController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function show(Location $location)
+    public function show($id)
     {
+
+        $location = Location::all()->find($id);
         return [
             'success' => true,
-            'location' => $location
+            'response' => $location
         ];
+    
     }
 
     /**

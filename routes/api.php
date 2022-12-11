@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('locations', 'LocationController@index');
+Route::get('locations/{id}', 'LocationController@show');
 Route::post('locations', 'LocationController@store');
 Route::delete('locations/{id}', 'LocationController@destroy');
 Route::put('locations/{location}', 'LocationController@update' );
@@ -50,6 +51,7 @@ Route::put('teams/{team}', 'TeamController@update' );
 
 
 Route::get('tournaments', 'TournamentController@index');
+Route::get('tournaments/{id}', 'TournamentController@show');
 Route::post('tournaments', 'TournamentController@store');
 Route::delete('tournaments/{id}', 'TournamentController@destroy');
 Route::put('tournaments/{tournament}', 'TournamentController@update' );

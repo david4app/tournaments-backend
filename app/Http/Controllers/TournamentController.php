@@ -61,12 +61,15 @@ class TournamentController extends Controller
      * @param  \App\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function show(Tournament $tournament)
+    public function show($id)
     {
+
+        $tournament = Tournament::all()->find($id);
         return [
             'success' => true,
-            'tournament' => $tournament
+            'response' => $tournament
         ];
+    
     }
 
     /**
